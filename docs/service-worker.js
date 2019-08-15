@@ -1,7 +1,7 @@
 'use strict';
 
-const CACHE_ARQUIVOS = 'static-cache-v1';
-const CACHE_DADOS = 'data-cache-v1';
+const CACHE_ARQUIVOS = 'static-cache-v1.1';
+const CACHE_DADOS = 'data-cache-v1.1';
 
 const ARQUIVOS_A_CACHEAR = [
   './',
