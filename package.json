@@ -1,11 +1,11 @@
 {
-  "name": "olapwa",
+  "name": "chuck_rules",
   "version": "2.0.0",
-  "description": "Ola PWA",
-  "homepage": "https://github.com/jfrank1500/olapwa",
+  "description": "Chuck Rules",
+  "homepage": "https://github.com/jfrank1500/jfrank1500",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node servidor.js"
   },
   "dependencies": {
     "express": "^4.16.4",
@@ -17,10 +17,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jfrank1500/olapwa.git"
+    "url": "https://github.com/jfrank1500/jfrank1500.git"
   },
   "bugs": {
-    "url": "https://github.com/jfrank1500/olapwa/issues"
+    "url": "https://github.com/jfrank1500/jfrank1500/issues"
   },
   "license": "Apache2",
   "keywords": [

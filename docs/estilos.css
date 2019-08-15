@@ -15,6 +15,10 @@ body {
     background: url(./img/instalar.svg) center center no-repeat;
 }
 
+#menu {
+    background: url(./img/mais.svg) center center no-repeat;
+}
+
 button {
     border: none;
     cursor: pointer;
