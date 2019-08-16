@@ -1,5 +1,7 @@
 'use strict';
 
+const URL_API = 'https://api.icndb.com/jokes/random/10?escape=javascript';
+
 function w3_open() {
   document.getElementById("mySidebar").style.display = "block";
   document.getElementById("myOverlay").style.display = "block";
@@ -40,10 +42,9 @@ window.addEventListener('appinstalled', function (evt) {
 
 async function localizarDadosDaRede() {
   try {
-    const response = await fetch('https://api.icndb.com/jokes/random/10');
+    const response = await fetch(URL_API);
     return response.json();
-  }
-  catch (e) {
+  } catch (e) {
     return null;
   }
 }
@@ -53,13 +54,12 @@ async function localizarDadosDoCache() {
     return null;
   }
   try {
-    const response = await caches.match('https://api.icndb.com/jokes/random/10');
+    const response = await caches.match(URL_API);
     if (response) {
       return response.json();
     }
     return null;
-  }
-  catch (err) {
+  } catch (err) {
     console.error('Erro recuperando dados do cache', err);
     return null;
   }
