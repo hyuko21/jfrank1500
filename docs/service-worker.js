@@ -1,7 +1,7 @@
 'use strict';
 
-const CACHE_ARQUIVOS = 'static-cache-v1.1';
-const CACHE_DADOS = 'data-cache-v1.1';
+const CACHE_ARQUIVOS = 'static-cache-v1.2';
+const CACHE_DADOS = 'data-cache-v1.2';
 
 const ARQUIVOS_A_CACHEAR = [
   './',
@@ -53,8 +53,7 @@ self.addEventListener('fetch', function (evt) {
             cache.put(evt.request.url, response.clone());
           }
           return response;
-        }
-        catch (err) {
+        } catch (err) {
           return cache.match(evt.request);
         }
       }));
