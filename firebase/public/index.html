@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <title>Chuck Rules</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Chuck Rules">
+    <meta name="theme-color" content="#2F3BA2" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Chuck Rules">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="./img/icon-152x152.png">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="stylesheet" href="./vendor/w3.css">
+    <link rel="stylesheet" href="./vendor/w3-theme-indigo.css">
+    <link rel="stylesheet" href="./estilos.css">
+</head>
+
+<body>
+    <nav class="w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card" style="z-index:3;width:250px;"
+        id="mySidebar">
+        <a class="w3-bar-item w3-button w3-border-bottom w3-large" href="#"><img src="./img/icon-72x72.png"
+                style="width:80%;"></a>
+        <a class="w3-bar-item w3-button w3-hide-large w3-large" href="javascript:void(0)" onclick="w3_close()">Fechar <i
+                class="fa fa-remove"></i></a>
+        <a class="w3-bar-item w3-button w3-indigo" href="#">Atualizar</a>
+        <a class="w3-bar-item w3-button" href="#">Sobre</a>
+        <a id="permission" class="w3-bar-item w3-button" href="#" onclick="requestPermission()">Habilitar notificações</a>
+        <a id="denyPermission" class="w3-bar-item w3-button" href="#" onclick="deleteToken()">Parar notificações</a>
+    </nav>
+    <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay">
+    </div>
+    <div class="w3-main" style="margin-left:250px;">
+        <div id="myTop" class="w3-container w3-top w3-theme w3-large w3-card-4">
+            <p>
+                <button id="menu" onclick="w3_open()" aria-label="Menu"></button>
+                <span id="myIntro" class="w3-show-inline-block">Chuck Rules</span>
+                <span>
+                    <button id="instalar" aria-label="Instalar" hidden></button>
+                    <button id="atualizar" aria-label="Atualizar"></button>
+                </span>
+                <span id="token"></span>
+            </p>
+        </div>
+        <div class="w3-container" style="padding:82px 0 0 0">
+            <ul class="w3-ul w3-card-4" id="lista">
+                <li class="w3-bar">
+                    <div class="w3-bar-item">
+                        <img src="img/icon-512x512.png" class="w3-bar-item w3-circle" style="width:85px">
+                        <span class="w3-large">Chuck says</span><br>
+                        <span>Sem dados</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div id="TEMPLATES" style="display: none;">
+            <li id="TEMPLATE_LINHA" class="w3-bar">
+                <div class="w3-bar-item">
+                    <img src="img/icon-512x512.png" class="w3-bar-item w3-circle" style="width:85px">
+                    <span class="w3-large nome">Chuck</span><br>
+                    <span class="descricao">Ranger</span>
+                </div>
+            </li>
+        </div>
+        <footer class="w3-container w3-theme w3-center" style="padding:32px">
+            <p>Chuck Rules 2019</p>
+        </footer>
+
+    </div>
+
+    <!-- Import and configure the Firebase SDK -->
+    <!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
+    <!-- If you do not serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup -->
+    <script src="/__/firebase/5.11.1/firebase-app.js"></script>
+    <script src="/__/firebase/5.11.1/firebase-messaging.js"></script>
+    <script src="/__/firebase/init.js"></script>
+
+    <script src="./push-notification.js"></script>
+    <script src="./index.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js')
+                    .then((reg) => {
+                        console.log('Service worker registrado.', reg);
+
+                        if ('PushManager' in self) {
+                            self.registration = reg;
+                        }
+                    });
+            });
+        }
+    </script>
+
+</body>
+
+</html>
